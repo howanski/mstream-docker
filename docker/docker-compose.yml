@@ -1,0 +1,15 @@
+version: "2.1"
+services:
+  mstream:
+    image: ghcr.io/linuxserver/mstream
+    container_name: mstream
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Warsaw
+    volumes:
+      - ./../data:/config
+      - ./../music:/music:ro
+    ports:
+      - 6969:3000
+    restart: always
